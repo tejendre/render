@@ -1,0 +1,23 @@
+databases:
+  - name: isabel5-db
+    databaseName: isabel5-production
+    user: isabel5
+    plan: free
+
+services:
+  - type: web
+    name: isabel5
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: isabel5-db
+          property: connectionString
+      - key: e9ce5a80ddde2eb1790aaf9e0c054dc9
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default
