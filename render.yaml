@@ -1,6 +1,6 @@
 databases:
   - name: isabel5-db
-    databaseName: isabel5-production
+    databaseName: isabel5_production
     user: isabel5
     plan: free
 
