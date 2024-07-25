@@ -1,7 +1,7 @@
 databases:
   - name: isabel5-db
     databaseName: isabel5_production
-    user: isabel5
+    user: tejendre
     plan: free
 
 services:
@@ -17,7 +17,8 @@ services:
         fromDatabase:
           name: isabel5-db
           property: connectionString
-      - key: e9ce5a80ddde2eb1790aaf9e0c054dc9
+      - key: RAILS_MASTER_KEY
         sync: false
+        value: e9ce5a80ddde2eb1790aaf9e0c054dc9
       - key: WEB_CONCURRENCY
         value: 2 # sensible default
